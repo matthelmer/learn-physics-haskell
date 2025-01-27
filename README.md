@@ -45,4 +45,4 @@ As this repository represents my personal learning journey, I'm not actively see
 - Scott N. Walck for writing "Learn Physics With Functional Programming"
 - The Haskell community for creating and maintaining the language and its ecosystem
 
-© [Matt Helmer] [2025] - All Rights Reserved
+© Matt Helmer 2025 - All Rights Reserved
