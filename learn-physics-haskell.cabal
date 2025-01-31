@@ -15,10 +15,20 @@ executable lpfp-ch02
     default-language: Haskell2010
     ghc-options: -Wall
 
+executable lpfp-ch03
+    main-is: lpfp-ch03.hs
+    build-depends:
+        base
+      , learn-physics-haskell
+    hs-source-dirs:   app
+    default-language: Haskell2010
+    ghc-options: -Wall
+
 library
   hs-source-dirs: src
   exposed-modules:
       LPFP.Ch02
+    , LPFP.Ch03
   build-depends:
       base ^>=4.19.1.0
     , containers ^>=0.6.8
