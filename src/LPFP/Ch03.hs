@@ -32,3 +32,25 @@ runEx_3_1 = do
       in "e) x == y    " ++ show ok
     putStrLn $
       "f) Not well-formed, AND operator requires both inputs be booleans"
+
+-------------------
+-- * Exercise 3.2 *
+-------------------
+f :: Double -> Double
+f x = if x <= 0
+        then 0
+        else x
+
+e :: Double -> Double
+e r = if r <= 1
+        then r
+        else 1 / r**2
+
+runEx_3_2 :: IO ()
+runEx_3_2 = do
+    putStrLn $
+      let ok = f (-1) == 0
+      in show ok
+    putStrLn $
+      let ok = f 1 == 1
+      in show ok
