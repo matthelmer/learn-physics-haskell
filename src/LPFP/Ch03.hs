@@ -54,3 +54,21 @@ runEx_3_2 = do
     putStrLn $
       let ok = f 1 == 1
       in show ok
+
+-------------------
+-- * Exercise 3.3 *
+-------------------
+isXorY :: Char -> Bool
+isXorY myChar = case myChar of
+                    'Y' -> True
+                    'X' -> True
+                    _   -> False
+
+runEx_3_3 :: IO ()
+runEx_3_3 = do
+    putStrLn $
+      let ok = isXorY 'X' == True
+      in show ok
+    putStrLn $
+      let ok = isXorY 'Z' == False
+      in show ok
