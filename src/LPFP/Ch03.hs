@@ -1,10 +1,8 @@
 module LPFP.Ch03 where
 
-
--------------------
+--------------------
 -- * Exercise 3.1 *
--------------------
-
+--------------------
 runEx_3_1 :: IO ()
 runEx_3_1 = do
     putStrLn $
@@ -33,9 +31,9 @@ runEx_3_1 = do
     putStrLn $
       "f) Not well-formed, AND operator requires both inputs be booleans"
 
--------------------
+--------------------
 -- * Exercise 3.2 *
--------------------
+--------------------
 f :: Double -> Double
 f x = if x <= 0
         then 0
@@ -55,9 +53,9 @@ runEx_3_2 = do
       let ok = f 1 == 1
       in show ok
 
--------------------
+--------------------
 -- * Exercise 3.3 *
--------------------
+--------------------
 isXorY :: Char -> Bool
 isXorY myChar = case myChar of
                     'Y' -> True
@@ -72,3 +70,46 @@ runEx_3_3 = do
     putStrLn $
       let ok = isXorY 'Z' == False
       in show ok
+
+--------------------
+-- * Exercise 3.4 *
+--------------------
+bagFee :: Bool -> Int
+bagFee checkingBags = if checkingBags
+                        then 100
+                        else 0
+
+bagFee2 :: Bool -> Int
+bagFee2 True = 100
+bagFee2 _ = 0
+
+runEx_3_4 :: IO ()
+runEx_3_4 = do
+    putStrLn $
+      let ok = bagFee True == 100
+      in show ok
+    putStrLn $
+      let ok = bagFee False == 0
+      in show ok
+    putStrLn $
+      let ok = bagFee2 False == 0
+      in show ok
+
+--------------------
+-- * Exercise 3.5 *
+--------------------
+--------------------
+-- * Exercise 3.6 *
+--------------------
+--------------------
+-- * Exercise 3.7 *
+--------------------
+--------------------
+-- * Exercise 3.8 *
+--------------------
+--------------------
+-- * Exercise 3.9 *
+--------------------
+--------------------
+-- * Exercise 3.10 *
+--------------------
