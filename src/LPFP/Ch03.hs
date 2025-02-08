@@ -98,9 +98,38 @@ runEx_3_4 = do
 --------------------
 -- * Exercise 3.5 *
 --------------------
+greaterThan50 :: Integer -> Bool
+greaterThan50 n = n > 50
+
+runEx_3_5 :: IO ()
+runEx_3_5 = do
+    putStrLn $
+      let ok = greaterThan50 50 == False
+      in "50 is not greaterThan50   " ++ show ok
+    putStrLn $
+      let ok = greaterThan50 51 == True
+      in "50 is greaterThan50   " ++ show ok
+
 --------------------
 -- * Exercise 3.6 *
 --------------------
+amazingCurve :: Int -> Int
+amazingCurve score = case score of
+                        greaterThan50 -> 100
+                        _             -> 2 * score
+
+runEx_3_6 :: IO ()
+runEx_3_6 = do
+    putStrLn $
+      let ok = amazingCurve 1 == 2
+      in "amazingCurve 1 == 2    " ++ show ok
+    putStrLn $
+      let ok = amazingCurve 50 == 100
+      in "amazingCurve 50 == 100    " ++ show ok
+    putStrLn $
+      let ok = amazingCurve 51 == 100
+      in "amazingCurve 51 == 100    " ++ show ok
+
 --------------------
 -- * Exercise 3.7 *
 --------------------
