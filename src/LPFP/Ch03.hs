@@ -141,7 +141,28 @@ runEx_3_7 = do
 --------------------
 -- * Exercise 3.8 *
 --------------------
+circleRadius :: Double
+circleRadius = 3.5
 
+cot :: Double -> Double
+cot x = 1 / tan x
+
+fe :: Double -> Double
+fe epsilon = epsilon * tan (epsilon * pi / 2)
+
+fo :: Double -> Double
+fo epsilon = -epsilon * cot (epsilon * pi / 2)
+
+g :: Double -> Double -> Double
+g nu epsilon = sqrt (nu**2 - epsilon**2)
+
+runEx_3_8 :: IO ()
+runEx_3_8 = do
+    putStrLn $ "Type of 'circleRadius 3.5': Double"
+    putStrLn $ "Type of 'cot x = 1 / tan x': Double -> Double"
+    putStrLn $ "Type of 'fe epsilon = epsilon * tan (epsilon * pi / 2)': Double -> Double"
+    putStrLn $ "Type of 'fo epsilon = -epsilon * cot (epsilon * pi / 2)': Double -> Double"
+    putStrLn $ "Type of 'g nu epsilon = sqrt (nu**2 - epsilon**2)': Double -> Double"
 
 --------------------
 -- * Exercise 3.9 *
