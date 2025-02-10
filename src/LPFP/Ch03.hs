@@ -133,9 +133,16 @@ runEx_3_6 = do
 --------------------
 -- * Exercise 3.7 *
 --------------------
+runEx_3_7 :: IO ()
+runEx_3_7 = do
+    putStrLn $ "Type of 'bagFee False': Int"
+    putStrLn $ "Value of 'bagFee False': " ++ show (bagFee False)
+
 --------------------
 -- * Exercise 3.8 *
 --------------------
+
+
 --------------------
 -- * Exercise 3.9 *
 --------------------
