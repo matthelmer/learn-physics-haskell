@@ -167,6 +167,16 @@ runEx_3_8 = do
 --------------------
 -- * Exercise 3.9 *
 --------------------
+runEx_3_9 :: IO ()
+runEx_3_9 = do
+    putStrLn $ "Number of functions of type 'Bool -> Bool': 4"
+    putStrLn $ "Good names for them might be 'alwaysFalse', 'alwaysTrue', 'not', and 'identity'"
+
 --------------------
 -- * Exercise 3.10 *
 --------------------
+runEx_3_10 :: IO ()
+runEx_3_10 = do
+    putStrLn $
+      let ok = (True || False) && False /= True || False && False
+      in "(True || False) && False /= True || False && False    " ++ show ok
