@@ -42,20 +42,51 @@ runEx_4_2 :: IO ()
 runEx_4_2 = do
     putStrLn "Exercise 4.2 Results:"
 
-    putStrLn "\nErrors for different x values with a = 1:"
+    putStrLn "Errors for different x values with a = 1:"
     print $ derivativeError 1 1
     print $ derivativeError 2 1
     print $ derivativeError 3 1
     print $ derivativeError 4 1
 
-    putStrLn "\nErrors for x = 4 with different a values:"
+    putStrLn "Errors for x = 4 with different a values:"
     print $ derivativeError 4 1
     print $ derivativeError 4 0.1
     print $ derivativeError 4 0.01
     print $ derivativeError 4 0.001
 
-    putStrLn "\nValue of a for 1% error at x = 4:"
+    putStrLn "Value of a for 1% error at x = 4:"
     print $ findAFor1PercentError 4
 
-    putStrLn "\nValue of a for 1% error at x = 0.1:"
+    putStrLn "Value of a for 1% error at x = 0.1:"
     print $ findAFor1PercentError 0.1
+
+--------------------
+-- * Exercise 4.3 *
+--------------------
+-- f(x) = x^4
+f_4_3 :: R -> R
+f_4_3 x = x ** 4
+
+-- Exact derivative of f(x) = x^4
+df_4_3 :: R -> R
+df_4_3 x = 4 * x ** 3
+
+-- Calculate relative error for a given x and step size a
+relativeError :: R -> R -> R
+relativeError x a =
+    abs ((derivative a f_4_3 x - df_4_3 x) / df_4_3 x)
+
+runEx_4_3 :: IO ()
+runEx_4_3 = do
+    putStrLn "Exercise 4.3 Results:"
+    let x = 0.01  -- Independent variable x value
+    let a = 0.01 -- Step size
+    let error = relativeError x a
+    putStrLn $ "Function: f(x) = x^4"
+    putStrLn $ "x = " ++ show x
+    putStrLn $ "Step size (a) = " ++ show a
+    putStrLn $ "Relative error: " ++ show error
+    putStrLn $ "Error percentage: " ++ show (error * 100) ++ "%"
+    if error > 0.1
+        then putStrLn "The error is more than 10%"
+        else putStrLn "The error is NOT more than 10%"
