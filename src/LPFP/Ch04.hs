@@ -13,6 +13,7 @@ derivative dt x t = (x (t + dt / 2) - x (t - dt / 2)) / dt
 runEx_4_1 :: IO ()
 runEx_4_1 = do
     let f x = 1 / 2 * x ** 2
+    putStrLn "Exercise 4.1 Results:"
     putStrLn "Derivatives of f(x) = 1/2 * x^2 at x = 1:"
     putStrLn $ "dt = 10:   " ++ show (derivative 10 f 1)
     putStrLn $ "dt = 1:    " ++ show (derivative 1 f 1)
@@ -90,3 +91,50 @@ runEx_4_3 = do
     if error > 0.1
         then putStrLn "The error is more than 10%"
         else putStrLn "The error is NOT more than 10%"
+
+--------------------
+-- * Exercise 4.4 *
+--------------------
+-- exact derivative of cos(t) is -sin(t)
+df_4_4 :: R -> R
+df_4_4 t = -sin t
+
+-- error between numerical and exact derivative
+cosDerivativeError :: R -> R -> R
+cosDerivativeError t a = abs ((derivative a cos t) - (df_4_4 t))
+
+-- relative error
+cosRelativeError :: R -> R -> R
+cosRelativeError t a =
+    let exactDeriv = df_4_4 t
+    in if exactDeriv == 0
+       then abs (derivative a cos t)  -- Handle division by zero
+       else abs ((derivative a cos t - exactDeriv) / exactDeriv)
+
+runEx_4_4 :: IO ()
+runEx_4_4 = do
+    putStrLn "Exercise 4.4 Results:"
+
+    -- check sensitivity at different t values with fixed a
+    putStrLn "\nError at different t values with fixed a = 0.1:"
+    let a = 0.1
+    let tValues = [0, pi/6, pi/4, pi/3, pi/2, pi, 3*pi/2, 2*pi]
+    mapM_ (\t -> putStrLn $ "t = " ++ show t ++ ", error = " ++
+                           show (cosDerivativeError t a)) tValues
+
+    -- how large a can be at certain t values while maintaining accuracy
+    putStrLn "\nLarge step sizes that still give good approximations:"
+    let checkLargeA t =
+            let goodAValues = filter (\a -> cosRelativeError t a < 0.01) [0.1, 0.5, 1.0, 2.0, 5.0, 10.0]
+            in "t = " ++ show t ++ ", largest good a = " ++
+               if null goodAValues then "none found" else show (maximum goodAValues)
+
+    mapM_ (putStrLn . checkLargeA) [0, pi/4, pi/2, pi, 3*pi/2, 2*pi]
+
+    -- Explore where the derivative is most/least sensitive
+    putStrLn "\nSensitivity analysis across t values:"
+    let sensitivityTest t =
+            let smallChange = cosDerivativeError t 0.1 - cosDerivativeError t 0.01
+            in "t = " ++ show t ++ ", sensitivity = " ++ show smallChange
+
+    mapM_ (putStrLn . sensitivityTest) [0, pi/6, pi/4, pi/3, pi/2, pi, 3*pi/2, 2*pi]
