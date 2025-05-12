@@ -1,5 +1,6 @@
 
 # Learn Physics With Functional Programming - Personal Study Guide
+## Personal Study Guide
 
 ![Book Cover](book_front.png)
 
@@ -36,13 +37,4 @@ This repository contains my personal study notes and exercise solutions. It is i
 
 This is not an official solution guide or affiliated with the book's author or publisher. All content is my own interpretation and work, created for educational purposes.
 
-## Contributions
-
 As this repository represents my personal learning journey, I'm not actively seeking contributions. However, if you spot an error or have a suggestion, feel free to open an issue for discussion.
-
-## Acknowledgments
-
-- Scott N. Walck for writing "Learn Physics With Functional Programming"
-- The Haskell community for creating and maintaining the language and its ecosystem
-
-© Matt Helmer 2025 - All Rights Reserved
