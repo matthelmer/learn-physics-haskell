@@ -1,6 +1,10 @@
 module LPFP.Ch04 where
 
 type R = Double
+type Position = R
+type Time = R
+type Velocity = R
+type Acceleration = R
 
 --------------------
 -- * Exercise 4.1 *
@@ -138,3 +142,69 @@ runEx_4_4 = do
             in "t = " ++ show t ++ ", sensitivity = " ++ show smallChange
 
     mapM_ (putStrLn . sensitivityTest) [0, pi/6, pi/4, pi/3, pi/2, pi, 3*pi/2, 2*pi]
+
+
+--------------------
+-- * Exercise 4.5 *
+--------------------
+pos1 :: Time -> Position
+pos1 t = if t < 0
+         then 0
+         else 5 * t**2
+
+-- define functions for vel and acc functions by taking an analytic derivative of position function
+vel1Analytic :: Time -> Velocity
+vel1Analytic t = if t < 0
+                 then 0
+                 else 10 * t
+
+acc1Analytic :: Time -> Acceleration
+acc1Analytic t = if t < 0
+                 then 0
+                 else 10
+
+-- define functions for corresponding vel and acc functions by taking a numerical derivative of position function using derivative 0.01.
+dt_4_5 :: R
+dt_4_5 = 0.01
+
+vel1Numerical :: Time -> Velocity
+vel1Numerical t = derivative dt_4_5 pos1 t
+
+acc1Numerical :: Time -> Acceleration
+acc1Numerical t = derivative dt_4_5 vel1Numerical t
+
+-- can you find any values of t where `vel1Analytic t` and `vel1Numerical t` differ substantially?
+-- can you find any values of t where `acc1Analytic t` and `acc1Numerical t` differ substantially?
+
+runEx_4_5 :: IO ()
+runEx_4_5 = do
+    putStrLn "Exercise 4.5 Results:"
+
+    let testTimes = [-0.1, 0.0, 0.001, 0.005, 0.01, 0.1, 1.0]
+
+    putStrLn "\nComparing Analytic vs. Numerical Velocity (dt = 0.01):"
+    mapM_ (\t -> do
+        let vAnalytic = vel1Analytic t
+        let vNumerical = vel1Numerical t
+        putStrLn $ "t = " ++ show t ++
+                   ", V_analytic = " ++ show vAnalytic ++
+                   ", V_numerical = " ++ show vNumerical ++
+                   ", Diff = " ++ show (abs (vAnalytic - vNumerical))
+        ) testTimes
+
+    putStrLn "\nComparing Analytic vs. Numerical Acceleration (dt = 0.01):"
+    -- Note: Analytic acceleration is undefined at t=0. The numerical value at t=0
+    -- will be an approximation based on the velocity points around 0.
+    mapM_ (\t -> do
+        let aAnalytic = if t == 0 then nan else acc1Analytic t
+        let aNumerical = acc1Numerical t
+        putStrLn $ "t = " ++ show t ++
+                   ", A_analytic = " ++ (if isNaN aAnalytic then "Undefined" else show aAnalytic) ++
+                   ", A_numerical = " ++ show aNumerical ++
+                   (if isNaN aAnalytic then "" else ", Diff = " ++ show (abs (aAnalytic - aNumerical)))
+        ) testTimes
+
+
+-- helper to produce NaN (Not a Number)
+nan :: Double
+nan = 0/0

@@ -8,3 +8,4 @@ main = do
     LPFP.Ch04.runEx_4_2
     LPFP.Ch04.runEx_4_3
     LPFP.Ch04.runEx_4_4
+    LPFP.Ch04.runEx_4_5
