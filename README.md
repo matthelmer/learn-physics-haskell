@@ -1,6 +1,6 @@
 
-# Learn Physics With Functional Programming - Personal Study Guide
-## Personal Study Guide
+# Learn Physics With Functional Programming
+### Personal Study Guide
 
 ![Book Cover](book_front.png)
 
