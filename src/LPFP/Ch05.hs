@@ -1,5 +1,6 @@
 module LPFP.Ch05 where
 
+import Data.Typeable
 type R = Double
 
 --------------------
@@ -29,3 +30,29 @@ runEx_5_2 = do
     putStrLn "Testing sndItem0:"
     let list1 = [1, 2, 3, 4]
     putStrLn $ "sndItem0 " ++ show list1 ++ " = " ++ show (sndItem0 list1)
+
+--------------------
+-- * Exercise 5.3 *
+--------------------
+runEx_5_3 :: IO ()
+runEx_5_3 = do
+    let expression = "Hello, world!"
+    putStrLn "Exercise 5.3 Results:"
+    putStrLn $ "Expression: " ++ show expression
+    putStrLn $ "Type of expression: " ++ show (typeOf expression)
+    putStrLn $ "Value of expression: " ++ show (length expression)
+
+--------------------
+-- * Exercise 5.4 *
+--------------------
+myFunc :: Int -> [Int]
+myFunc n = take n (repeat n)
+
+runEx_5_4 :: IO ()
+runEx_5_4 = do
+    putStrLn "Exercise 5.4 Results:"
+    putStrLn "`myFunc` takes an integer argument as input and returns a list consisting of the integer repeated a number of times equal to its value."
+    putStrLn $
+      let goodResult = [4, 4, 4, 4]
+          ok = myFunc 4 == goodResult
+      in "`myFunc 4` == [4, 4, 4, 4]:   " ++ show ok
