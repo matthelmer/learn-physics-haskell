@@ -6,6 +6,10 @@
 
 This repository contains my solutions and notes for exercises from the book "Learn Physics With Functional Programming" by Scott N. Walck.
 
+## About This Project
+
+I'm working through this book to learn both Haskell and physics simultaneously. The code here aims to be clear and educational, using simple Haskell patterns.
+
 
 ## Repository Structure
 
@@ -13,28 +17,38 @@ The solutions are organized by chapters, corresponding to the book's structure. 
 
 ```
 learn-physics-haskell/
-├── app/
-│   └── lpfp-ch02.hs
+├── app/              # Executables for each chapter
+│   ├── lpfp-ch02.hs
+│   ├── lpfp-ch03.hs
+│   └── ...
 ├── src/
-│   └── LPFP/
-│       └── Ch02.hs
-├── CHANGELOG.md
-├── README.md
+│   └── LPFP/        # Exercise solutions by chapter
+│       ├── Ch02.hs
+│       ├── Ch03.hs
+│       └── ...
 └── learn-physics-haskell.cabal
 ```
 
-## How to Use This Repository
+## Getting Started
 
-1. Clone the repository
-2. Ensure you have GHC (Glasgow Haskell Compiler) and Cabal installed
-3. Navigate to the project directory
-4. Run `cabal build` to compile the project
-5. Run `cabal run lpfp-ch02` to execute the solutions for Chapter 2
+### Prerequisites
+- GHC (Glasgow Haskell Compiler) 
+- Cabal build tool
+
+### Running the Code
+
+```bash
+# Build all chapters
+cabal build
+
+# Run a specific chapter's exercises
+cabal run lpfp-ch02  # Replace with ch03, ch04, etc.
+```
 
 ## Disclaimer and Purpose
-
-This repository contains my personal study notes and exercise solutions. It is intended as a personal learning journal, and a potential resource for other learners.
 
 This is not an official solution guide or affiliated with the book's author or publisher. All content is my own interpretation and work, created for educational purposes.
 
 As this repository represents my personal learning journey, I'm not actively seeking contributions. However, if you spot an error or have a suggestion, feel free to open an issue for discussion.
+
+Special thanks to my friend Travis Cardwell for introducing me to Haskell.
