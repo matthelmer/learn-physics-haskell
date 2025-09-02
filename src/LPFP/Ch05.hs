@@ -12,7 +12,7 @@ numbers = [-2.0, -1.2..2.0]
 runEx_5_1 :: IO ()
 runEx_5_1 = do
     putStrLn "Exercise 5.1 Results:"
-    putStrLn $ "numbers = " ++ show numbers
+    putStrLn $ "numbers = " ++ show numbers ++ "\n"
 
 --------------------
 -- * Exercise 5.2 *
@@ -29,7 +29,7 @@ runEx_5_2 = do
     putStrLn "Exercise 5.2 Results:"
     putStrLn "Testing sndItem0:"
     let list1 = [1, 2, 3, 4]
-    putStrLn $ "sndItem0 " ++ show list1 ++ " = " ++ show (sndItem0 list1)
+    putStrLn $ "sndItem0 " ++ show list1 ++ " = " ++ show (sndItem0 list1) ++ "\n"
 
 --------------------
 -- * Exercise 5.3 *
@@ -40,7 +40,7 @@ runEx_5_3 = do
     putStrLn "Exercise 5.3 Results:"
     putStrLn $ "Expression: " ++ show expression
     putStrLn $ "Type of expression: " ++ show (typeOf expression)
-    putStrLn $ "Value of expression: " ++ show (length expression)
+    putStrLn $ "Value of expression: " ++ show (length expression) ++ "\n"
 
 --------------------
 -- * Exercise 5.4 *
@@ -55,7 +55,7 @@ runEx_5_4 = do
     putStrLn $
       let goodResult = [4, 4, 4, 4]
           ok = myFunc 4 == goodResult
-      in "`myFunc 4` == [4, 4, 4, 4]:    " ++ show ok
+      in "`myFunc 4` == [4, 4, 4, 4]:    " ++ show ok ++ "\n"
 
 --------------------
 -- * Exercise 5.5 *
@@ -71,5 +71,21 @@ runEx_5_5 = do
         in "null' [] == True:    " ++ show ok
     putStrLn $
         let ok = null' [0] == False
-        in "null' [0] == False:    " ++ show ok
+        in "null' [0] == False:    " ++ show ok ++ "\n"
 
+--------------------
+-- * Exercise 5.6 *
+--------------------
+last' :: [a] -> a
+last' as = if null as
+           then error "Empty list has no last element"
+           else head (reverse as)
+
+runEx_5_6 :: IO ()
+runEx_5_6 = do
+    putStrLn "Exercise 5.6 Results:"
+    -- Note: last' [] would throw an error, so we don't test it here
+    putStrLn "last' [] would produce: \"Empty list has no last element\" error"
+    -- Non-empty lists
+    putStrLn $ "last' [1, 2]:    " ++ show (last' [1, 2])
+    putStrLn $ "last' \"hello\":  " ++ show (last' "hello") ++ "\n"

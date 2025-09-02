@@ -22,3 +22,7 @@ cabal.project.local
 cabal.project.local~
 .HTF/
 .ghc.environment.*
+
+# Ignore all .md files except README.md
+*.md
+!README.md
