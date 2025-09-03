@@ -104,4 +104,48 @@ runEx_5_7 = do
         in "\"hello\" is NOT a palindrome:    " ++ show ok
     putStrLn $
         let ok = palindrome "AJA" == True
-        in "\"AJA\" is a palindrome:    " ++ show ok
+        in "\"AJA\" is a palindrome:    " ++ show ok ++ "\n"
+
+--------------------
+-- * Exercise 5.8 *
+--------------------
+runEx_5_8 :: IO ()
+runEx_5_8 = do
+    putStrLn "Exercise 5.8 Results:"
+    putStrLn "What are the first five elements of infinite list [9,1..]?"
+    putStrLn $ show (take 5 [9,1..]) ++ "\n"
+
+
+--------------------
+-- * Exercise 5.9 *
+--------------------
+
+
+--------------------
+-- * Exercise 5.10 *
+--------------------
+
+
+--------------------
+-- * Exercise 5.11 *
+--------------------
+
+
+--------------------
+-- * Exercise 5.12 *
+--------------------
+
+
+--------------------
+-- * Exercise 5.13 *
+--------------------
+
+
+--------------------
+-- * Exercise 5.14 *
+--------------------
+
+
+--------------------
+-- * Exercise 5.15 *
+--------------------
