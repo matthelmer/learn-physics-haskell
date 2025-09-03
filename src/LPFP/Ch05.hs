@@ -89,3 +89,19 @@ runEx_5_6 = do
     -- Non-empty lists
     putStrLn $ "last' [1, 2]:    " ++ show (last' [1, 2])
     putStrLn $ "last' \"hello\":  " ++ show (last' "hello") ++ "\n"
+
+--------------------
+-- * Exercise 5.7 *
+--------------------
+palindrome :: String -> Bool
+palindrome word = reverse word == word
+
+runEx_5_7 :: IO ()
+runEx_5_7 = do
+    putStrLn "Exercise 5.7 Results:"
+    putStrLn $
+        let ok = palindrome "hello" == False
+        in "\"hello\" is NOT a palindrome:    " ++ show ok
+    putStrLn $
+        let ok = palindrome "AJA" == True
+        in "\"AJA\" is a palindrome:    " ++ show ok
