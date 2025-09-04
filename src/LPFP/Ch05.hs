@@ -119,6 +119,17 @@ runEx_5_8 = do
 --------------------
 -- * Exercise 5.9 *
 --------------------
+cycle' :: [a] -> [a]
+cycle' [] = error "Empty list cannot be cycled"
+cycle' as = concat (repeat as)
+
+runEx_5_9 :: IO ()
+runEx_5_9 = do
+    putStrLn "Exercise 5.9 Results:"
+    putStrLn $
+        let cycled' = cycle' [1,2,3]
+        in "First 10 elements of \"cycle' [1,2,3]\":    " ++ show (take 10 cycled') ++ "\n"
+
 
 
 --------------------
