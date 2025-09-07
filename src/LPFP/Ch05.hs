@@ -115,7 +115,6 @@ runEx_5_8 = do
     putStrLn "What are the first five elements of infinite list [9,1..]?"
     putStrLn $ show (take 5 [9,1..]) ++ "\n"
 
-
 --------------------
 -- * Exercise 5.9 *
 --------------------
@@ -130,33 +129,69 @@ runEx_5_9 = do
         let cycled' = cycle' [1,2,3]
         in "First 10 elements of \"cycle' [1,2,3]\":    " ++ show (take 10 cycled') ++ "\n"
 
-
-
 --------------------
 -- * Exercise 5.10 *
 --------------------
+-- Evaluate validity and types of various Haskell expressions
+runEx_5_10 :: IO ()
+runEx_5_10 = do
+    putStrLn "Exercise 5.10 Results:"
+    putStrLn "Which of the following are valid Haskell expressions?"
+    putStrLn "a) [\"hello\", 42]"
+    putStrLn "   INVALID: List elements must have the same type."
+    putStrLn "   \"hello\" is String, 42 is Num a => a"
+    putStrLn "b) ['h', \"ello\"]"
+    putStrLn "   INVALID: List elements must have the same type."
+    putStrLn "   'h' is Char, \"ello\" is String ([Char])"
+    putStrLn "c) ['a', 'b', 'c']"
+    putStrLn "   VALID: Type is [Char]"
+    putStrLn $ "   Value: " ++ show ['a', 'b', 'c']
+    putStrLn "d) length ['w', 'h', 'o']"
+    putStrLn "   VALID: Type is Int"
+    putStrLn $ "   Value: " ++ show (length ['w', 'h', 'o'])
+    putStrLn "e) length \"hello\""
+    putStrLn "   VALID: Type is Int"
+    putStrLn $ "   Value: " ++ show (length "hello")
+    putStrLn "f) reverse"
+    putStrLn "   VALID: Type is [a] -> [a]"
+    putStrLn "   This is a function that reverses any list"
 
 
 --------------------
 -- * Exercise 5.11 *
 --------------------
+runEx_5_11 :: IO ()
+runEx_5_11 = do
+    putStrLn "Exercise 5.11 Results:"
 
 
 --------------------
 -- * Exercise 5.12 *
 --------------------
+runEx_5_12 :: IO ()
+runEx_5_12 = do
+    putStrLn "Exercise 5.12 Results:"
 
 
 --------------------
 -- * Exercise 5.13 *
 --------------------
+runEx_5_13 :: IO ()
+runEx_5_13 = do
+    putStrLn "Exercise 5.13 Results:"
 
 
 --------------------
 -- * Exercise 5.14 *
 --------------------
+runEx_5_14 :: IO ()
+runEx_5_14 = do
+    putStrLn "Exercise 5.14 Results:"
 
 
 --------------------
 -- * Exercise 5.15 *
 --------------------
+runEx_5_15 :: IO ()
+runEx_5_15 = do
+    putStrLn "Exercise 5.15 Results:"
