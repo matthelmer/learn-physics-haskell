@@ -154,7 +154,7 @@ runEx_5_10 = do
     putStrLn $ "   Value: " ++ show (length "hello")
     putStrLn "f) reverse"
     putStrLn "   VALID: Type is [a] -> [a]"
-    putStrLn "   This is a function that reverses any list"
+    putStrLn "   This is a function that reverses any list\n"
 
 
 --------------------
@@ -163,6 +163,13 @@ runEx_5_10 = do
 runEx_5_11 :: IO ()
 runEx_5_11 = do
     putStrLn "Exercise 5.11 Results:"
+    putStrLn $ "[0,3..7.4] evaluates to: " ++ show ([0,3..7.4])
+    putStrLn $ "[0,3..7.5] evaluates to: " ++ show ([0,3..7.5])
+    putStrLn $ "[0,3..7.6] evaluates to: " ++ show ([0,3..7.6])
+    putStrLn $ "[0,2..6.9] evaluates to: " ++ show ([0,2..6.9])
+    putStrLn $ "[0,2..7.0] evaluates to: " ++ show ([0,2..7.0])
+    putStrLn $ "[0,2..7.1] evaluates to: " ++ show ([0,2..7.1])
+    putStrLn "In an arithmetic sequence, the sequence will terminate prior to the last element `n` if `n` is 1) not a whole number, and 2) the difference between `n` and the previous element is greater than half the sequence step size.\n"
 
 
 --------------------
