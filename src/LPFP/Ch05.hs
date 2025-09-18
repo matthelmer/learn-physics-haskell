@@ -175,17 +175,29 @@ runEx_5_11 = do
 --------------------
 -- * Exercise 5.12 *
 --------------------
+eulerSum :: R
+eulerSum = sum [1 / n**2 | n <- [1,2..100]]
+
 runEx_5_12 :: IO ()
 runEx_5_12 = do
     putStrLn "Exercise 5.12 Results:"
+    let e = eulerSum
+    putStrLn $ "Sum of (1 / n**2) from n=1 to 100:    " ++ show e ++ "\n"
 
 
 --------------------
 -- * Exercise 5.13 *
 --------------------
+fact :: Integer -> Integer
+fact n = product [n,n-1..1]
+
 runEx_5_13 :: IO ()
 runEx_5_13 = do
     putStrLn "Exercise 5.13 Results:"
+    putStrLn $
+        let goodResult = 24
+            ok = goodResult == fact 4
+        in "`fact 4` == 4! == 24:   " ++ show ok ++ "\n"
 
 
 --------------------
