@@ -199,38 +199,49 @@ runEx_5_13 = do
             ok = goodResult == fact 4
         in "`fact 4` == 4! == 24:   " ++ show ok ++ "\n"
 
-
 --------------------
 -- * Exercise 5.14 *
 --------------------
 expList :: R -> [R]
-expList x = [(1 + x / n) ** n | n <- [1..]]
+expList x = [(1 + x / fromIntegral n) ** fromIntegral n | n <- [1..]]
 
-findNExpList :: R -> Int
-findNExpList x = head [n | (n, diff) <- zip [1..] (percentDiff x (expList x)),
-                    diff < 0.01]
-  where
-    percentDiff x approxList = [abs((approx - exp x) / exp x)
-                                | approx <- approxList]
+findNLimit :: R -> Int
+findNLimit x = head [n | (n, approx) <- zip [1..] (expList x),
+                         abs (approx - exp x) / exp x < 0.01]
 
 runEx_5_14 :: IO ()
 runEx_5_14 = do
     putStrLn "Exercise 5.14 Results:"
     putStrLn $
-        let n = findNExpList 1
+        let n = findNLimit 1
         in "Position of first element of `expList 1` within 1% of `exp 1`:    " ++ show n
     putStrLn $
-        let n = findNExpList 10
+        let n = findNLimit 10
         in "Position of first element of `expList 10` within 1% of `exp 10`:    " ++ show n ++ "\n"
-
 
 --------------------
 -- * Exercise 5.15 *
 --------------------
 expSeries :: R -> [R]
-expSeries x = [x ** m / fromIntegral (fact (fromIntegral m)) | m <- [0,1..]]
+expSeries x = [x^m / fromIntegral (fact (fromIntegral m)) | m <- [0..]]
 
-find
+expApprox :: R -> [R]
+expApprox x = sums (expSeries x) 0
+  where
+    sums [] _ = []
+    sums (y:ys) acc = let new = acc + y
+                      in new:(sums ys new)
+
+findNTaylor :: R -> Int
+findNTaylor x = head [n | (n, approx) <- zip [1..] (expApprox x),
+                          abs (approx - exp x) / exp x < 0.01]
+
 runEx_5_15 :: IO ()
 runEx_5_15 = do
     putStrLn "Exercise 5.15 Results:"
+    putStrLn $
+        let n = findNTaylor 1
+        in "Position of first element of Taylor series for exp(1) within 1%:    " ++ show n
+    putStrLn $
+        let n = findNTaylor 10
+        in "Position of first element of Taylor series for exp(10) within 1%:    " ++ show n

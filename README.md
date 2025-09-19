@@ -51,4 +51,4 @@ This is not an official solution guide or affiliated with the book's author or p
 
 As this repository represents my personal learning journey, I'm not actively seeking contributions. However, if you spot an error or have a suggestion, feel free to open an issue for discussion.
 
-Special thanks to my friend Travis Cardwell for introducing me to Haskell.
+Thanks to my friend Travis Cardwell for all the Haskell help.
