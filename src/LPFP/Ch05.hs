@@ -206,8 +206,8 @@ runEx_5_13 = do
 expList :: R -> [R]
 expList x = [(1 + x / n) ** n | n <- [1..]]
 
-findN :: R -> Int
-findN x = head [n | (n, diff) <- zip [1..] (percentDiff x (expList x)),
+findNExpList :: R -> Int
+findNExpList x = head [n | (n, diff) <- zip [1..] (percentDiff x (expList x)),
                     diff < 0.01]
   where
     percentDiff x approxList = [abs((approx - exp x) / exp x)
@@ -217,10 +217,10 @@ runEx_5_14 :: IO ()
 runEx_5_14 = do
     putStrLn "Exercise 5.14 Results:"
     putStrLn $
-        let n = findN 1
+        let n = findNExpList 1
         in "Position of first element of `expList 1` within 1% of `exp 1`:    " ++ show n
     putStrLn $
-        let n = findN 10
+        let n = findNExpList 10
         in "Position of first element of `expList 10` within 1% of `exp 10`:    " ++ show n ++ "\n"
 
 
@@ -230,6 +230,7 @@ runEx_5_14 = do
 expSeries :: R -> [R]
 expSeries x = [x ** m / fromIntegral (fact (fromIntegral m)) | m <- [0,1..]]
 
+find
 runEx_5_15 :: IO ()
 runEx_5_15 = do
     putStrLn "Exercise 5.15 Results:"
