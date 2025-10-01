@@ -223,7 +223,7 @@ runEx_5_14 = do
 -- * Exercise 5.15 *
 --------------------
 expSeries :: R -> [R]
-expSeries x = [x^m / fromIntegral (fact (fromIntegral m)) | m <- [0..]]
+expSeries x = [x ** (fromIntegral m) / fromIntegral (fact m) | m <- [0..]]
 
 expApprox :: R -> [R]
 expApprox x = sums (expSeries x) 0
