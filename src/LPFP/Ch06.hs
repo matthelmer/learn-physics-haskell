@@ -19,4 +19,13 @@ runEx_6_1 :: IO ()
 runEx_6_1 = do
     putStrLn "Exercise 6.1 Results:"
     putStrLn $ "Type of yRock:    " ++ show (typeOf yRock)
-    putStrLn $ "Type of vRock:    " ++ show (typeOf vRock)
+    putStrLn $ "Type of vRock:    " ++ show (typeOf vRock) ++ "\n"
+
+--------------------
+-- * Exercise 6.2 *
+--------------------
+runEx_6_2 :: IO ()
+runEx_6_2 = do
+    putStrLn "Exercise 6.2 Results:"
+    putStrLn "Type signature of patially applied function `type 4`:"
+    putStrLn "take 4 :: [a] -> [a]"
