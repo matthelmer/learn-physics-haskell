@@ -27,5 +27,17 @@ runEx_6_1 = do
 runEx_6_2 :: IO ()
 runEx_6_2 = do
     putStrLn "Exercise 6.2 Results:"
-    putStrLn "Type signature of patially applied function `type 4`:"
-    putStrLn "take 4 :: [a] -> [a]"
+    putStrLn "Type signature of patially applied function `take 4`:"
+    putStrLn "take 4 :: [a] -> [a]\n"
+
+--------------------
+-- * Exercise 6.3 *
+--------------------
+runEx_6_3 :: IO ()
+runEx_6_3 = do
+    putStrLn "Exercise 6.3 Results:"
+    -- can `not` be first arg to `map`? if so, what is type of `map not`?
+    putStrLn "not :: Bool -> Bool"
+    putStrLn "map :: (a -> b) -> [a] -> [b]"
+    putStrLn "`not` can be 1st arg to `map`, restulting in type of `map not`:"
+    putStrLn "(map not) :: [Bool] -> [Bool]"
