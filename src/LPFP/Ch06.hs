@@ -39,5 +39,17 @@ runEx_6_3 = do
     -- can `not` be first arg to `map`? if so, what is type of `map not`?
     putStrLn "not :: Bool -> Bool"
     putStrLn "map :: (a -> b) -> [a] -> [b]"
-    putStrLn "`not` can be 1st arg to `map`, restulting in type of `map not`:"
-    putStrLn "(map not) :: [Bool] -> [Bool]"
+    putStrLn "`not` can be 1st arg to `map`, resulting in:"
+    putStrLn "(map not) :: [Bool] -> [Bool]\n"
+
+--------------------
+-- * Exercise 6.4 *
+--------------------
+greaterThanOrEq7' :: Int -> Bool
+greaterThanOrEq7' n = n >= 7
+
+runEx_6_4 :: IO ()
+runEx_6_4 = do
+    putStrLn "Exercise 6.4 Results:"
+    putStrLn $ "greaterThanOrEq7' 7:    " ++ show (greaterThanOrEq7' 7)
+    putStrLn $ "greaterThanOrEq7' 6:    " ++ show (greaterThanOrEq7' 6) ++ "\n"
