@@ -53,3 +53,15 @@ runEx_6_4 = do
     putStrLn "Exercise 6.4 Results:"
     putStrLn $ "greaterThanOrEq7' 7:    " ++ show (greaterThanOrEq7' 7)
     putStrLn $ "greaterThanOrEq7' 6:    " ++ show (greaterThanOrEq7' 6) ++ "\n"
+
+--------------------
+-- * Exercise 6.5 *
+--------------------
+func_6_5 :: Int -> String -> Bool
+func_6_5 n word = length word >= n
+
+runEx_6_5 :: IO ()
+runEx_6_5 = do
+    putStrLn "Exercise 6.5 Results:"
+    putStrLn "`func_6_5` takes Int and String inputs"
+    putStrLn "It returns True if the String is at least length 'n'\n"
