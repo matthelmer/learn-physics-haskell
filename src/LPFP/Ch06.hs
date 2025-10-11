@@ -65,3 +65,16 @@ runEx_6_5 = do
     putStrLn "Exercise 6.5 Results:"
     putStrLn "`func_6_5` takes Int and String inputs"
     putStrLn "It returns True if the String is at least length 'n'\n"
+
+--------------------
+-- * Exercise 6.6 *
+--------------------
+moreThan6 :: [a] -> Bool
+moreThan6 as = length as > 6
+
+runEx_6_6 :: IO ()
+runEx_6_6 = do
+    putStrLn "Exercise 6.6 Results:"
+    let myList = [0,1..]
+    putStrLn $ "moreThan6 (take 6 [0,1..]):    " ++ show (moreThan6 (take 6 myList))
+    putStrLn $ "moreThan6 (take 7 [0,1..]):    " ++ show (moreThan6 (take 7 myList))
