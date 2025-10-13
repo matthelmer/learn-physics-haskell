@@ -77,4 +77,13 @@ runEx_6_6 = do
     putStrLn "Exercise 6.6 Results:"
     let myList = [0,1..]
     putStrLn $ "moreThan6 (take 6 [0,1..]):    " ++ show (moreThan6 (take 6 myList))
-    putStrLn $ "moreThan6 (take 7 [0,1..]):    " ++ show (moreThan6 (take 7 myList))
+    putStrLn $ "moreThan6 (take 7 [0,1..]):    " ++ show (moreThan6 (take 7 myList)) ++ "\n"
+
+--------------------
+-- * Exercise 6.7 *
+--------------------
+runEx_6_7 :: IO ()
+runEx_6_7 = do
+    putStrLn "Exercise 6.7 Results:"
+    putStrLn "Why does `replicate 3 'x'` return \"xxx\"?"
+    putStrLn "\"xxx\" is a list of Chars, satisfying type signature of replicate :: Int -> a -> [a]"
