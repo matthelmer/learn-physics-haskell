@@ -87,3 +87,15 @@ runEx_6_7 = do
     putStrLn "Exercise 6.7 Results:"
     putStrLn "Why does `replicate 3 'x'` return \"xxx\"?"
     putStrLn "\"xxx\" is a list of Chars, satisfying type signature of replicate :: Int -> a -> [a]"
+    putStrLn ""
+
+--------------------
+-- * Exercise 6.8 *
+--------------------
+runEx_6_8 :: IO ()
+runEx_6_8 = do
+    putStrLn "Exercise 6.8 Results:"
+    putStrLn $
+        let thousandSquares = [x ** 2 | x <- [1..1000]]
+            firstTen = take 10 thousandSquares
+        in "First 10 squares:    " ++ show firstTen ++ "\n"
