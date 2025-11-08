@@ -99,3 +99,16 @@ runEx_6_8 = do
         let thousandSquares = [x ** 2 | x <- [1..1000]]
             firstTen = take 10 thousandSquares
         in "First 10 squares:    " ++ show firstTen ++ "\n"
+
+--------------------
+-- * Exercise 6.9 *
+--------------------
+repeat' :: a -> [a]
+repeat' x = iterate id x
+
+runEx_6_9 :: IO ()
+runEx_6_9 = do
+    putStrLn "Exercise 6.9 Results:"
+    putStrLn $
+        let result = repeat' 2
+        in "First 5 results of `repeat' 2`:    " ++ show (take 5 result) ++ "\n"
