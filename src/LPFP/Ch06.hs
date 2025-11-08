@@ -112,3 +112,17 @@ runEx_6_9 = do
     putStrLn $
         let result = repeat' 2
         in "First 5 results of `repeat' 2`:    " ++ show (take 5 result) ++ "\n"
+
+--------------------
+-- * Exercise 6.10 *
+--------------------
+replicate' :: Int -> a -> [a]
+replicate' n x = take n (repeat x)
+
+runEx_6_10 :: IO ()
+runEx_6_10 = do
+    putStrLn "Exercise 6.10 Results:"
+    putStrLn $
+        let result = replicate 5 "haskell"
+        in show result ++ "\n"
+

@@ -13,3 +13,4 @@ main = do
     LPFP.Ch06.runEx_6_7
     LPFP.Ch06.runEx_6_8
     LPFP.Ch06.runEx_6_9
+    LPFP.Ch06.runEx_6_10
