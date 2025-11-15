@@ -126,3 +126,12 @@ runEx_6_10 = do
         let result = replicate 5 "haskell"
         in show result ++ "\n"
 
+--------------------
+-- * Exercise 6.11 *
+--------------------
+runEx_6_11 :: IO ()
+runEx_6_11 = do
+    putStrLn "Exercise 6.11 Results:"
+    putStrLn $
+        let result = take 5 (iterate (+5) 0)
+        in show result ++ "\n"
