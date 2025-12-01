@@ -135,3 +135,17 @@ runEx_6_11 = do
     putStrLn $
         let result = take 5 (iterate (+5) 0)
         in show result ++ "\n"
+
+--------------------
+-- * Exercise 6.12 *
+--------------------
+map' :: (a -> b) -> [a] -> [b]
+map' f as = [f a | a <- as]
+
+runEx_6_12 :: IO ()
+runEx_6_12 = do
+    putStrLn "Exercise 6.12 Results:"
+    putStrLn "map' sqrt [1, 2, 3]:"
+    putStrLn $
+        let result = map' sqrt [1, 2, 3]
+        in show result ++ "\n"
