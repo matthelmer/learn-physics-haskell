@@ -149,3 +149,23 @@ runEx_6_12 = do
     putStrLn $
         let result = map' sqrt [1, 2, 3]
         in show result ++ "\n"
+
+
+
+--------------------
+-- * Exercise 6.13 *
+--------------------
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' predicate as = [a | a <- as, predicate a]
+
+lt10 :: Int -> Bool
+lt10 n = n < 10
+
+runEx_6_13 :: IO ()
+runEx_6_13 = do
+    putStrLn "Exercise 6.13 Results:"
+    putStrLn "filter' uses a list comprehension to filter:"
+    putStrLn "filter' lt10 [8, 9, 10]"
+    putStrLn $
+        let ok = filter' lt10 [8, 9, 10] == [8, 9]
+        in show ok ++ "\n"
