@@ -169,3 +169,18 @@ runEx_6_13 = do
     putStrLn $
         let ok = filter' lt10 [8, 9, 10] == [8, 9]
         in show ok ++ "\n"
+
+--------------------
+-- * Exercise 6.14 *
+--------------------
+average :: [R] -> R
+average xs = sum xs / fromIntegral (length xs)
+
+runEx_6_14 :: IO ()
+runEx_6_14 = do
+    putStrLn "Exercise 6.14 Results:"
+    putStrLn "average [1, 2] == 1.5"
+    putStrLn $
+        let ok = average [1, 2] == 1.5
+        in show ok ++ "\n"
+
