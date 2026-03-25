@@ -150,8 +150,6 @@ runEx_6_12 = do
         let result = map' sqrt [1, 2, 3]
         in show result ++ "\n"
 
-
-
 --------------------
 -- * Exercise 6.13 *
 --------------------
@@ -184,3 +182,68 @@ runEx_6_14 = do
         let ok = average [1, 2] == 1.5
         in show ok ++ "\n"
 
+--------------------
+-- * Exercise 6.15 *
+--------------------
+runEx_6_15 :: IO ()
+runEx_6_15 = do
+    putStrLn "Exercise 6.15 Results:"
+    putStrLn "drop :: Int -> [a] -> [a]"
+    putStrLn "One-input thinking:"
+    putStrLn ""
+    putStrLn "n :: Int   ______"
+    putStrLn "     ---> | drop | ---> drop n :: [a] -> [a]"
+    putStrLn "           ------ "
+    putStrLn ""
+    putStrLn "xs :: [a]   ________"
+    putStrLn "      ---> | drop n | ---> drop n xs :: [a]"
+    putStrLn "            --------"
+    putStrLn ""
+    putStrLn "Two-input thinking:"
+    putStrLn ""
+    putStrLn "xs :: [a]   ______"
+    putStrLn "      ---> | drop | ---> drop n xs :: [a]"
+    putStrLn "            ------"
+    putStrLn "           ^"
+    putStrLn "           |"
+    putStrLn "      n :: Int"
+    putStrLn ""
+    putStrLn "replicate :: Int -> a -> [a]"
+    putStrLn "One-input thinking:"
+    putStrLn ""
+    putStrLn "n :: Int   ___________"
+    putStrLn "     ---> | replicate | ---> replicate n :: a -> [a]"
+    putStrLn "           -----------"
+    putStrLn ""
+    putStrLn "x :: a     _____________"
+    putStrLn "     ---> | replicate n | ---> replicate n x :: [a]"
+    putStrLn "           -------------"
+    putStrLn ""
+    putStrLn "Two-input thinking:"
+    putStrLn ""
+    putStrLn "x :: a     ___________"
+    putStrLn "     ---> | replicate | ---> replicate n x :: [a]"
+    putStrLn "           -----------"
+    putStrLn "           ^"
+    putStrLn "           |"
+    putStrLn "      n :: Int"
+
+
+
+
+
+
+--------------------
+-- * Exercise 6.16 *
+--------------------
+trapIntegrate :: Int        -- # of trapezoids n
+              -> (R -> R)   -- function f
+              -> R          -- lower limit a
+              -> R          -- upper limit b
+              -> R          -- result
+trapIntegrate n f a b = (0.5 * f a + 0.5 * f b + sum[f (a + delta * k) | k <- [1..fromIntegral(n-1)]]) * delta
+    where delta = (b - a) / fromIntegral n
+
+runEx_6_16 :: IO ()
+runEx_6_16 = do
+    putStrLn "Exercise 6.16 Results:"
