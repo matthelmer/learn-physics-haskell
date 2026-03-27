@@ -226,11 +226,7 @@ runEx_6_15 = do
     putStrLn "           -----------"
     putStrLn "           ^"
     putStrLn "           |"
-    putStrLn "      n :: Int"
-
-
-
-
+    putStrLn "      n :: Int\n"
 
 
 --------------------
@@ -244,6 +240,21 @@ trapIntegrate :: Int        -- # of trapezoids n
 trapIntegrate n f a b = (0.5 * f a + 0.5 * f b + sum[f (a + delta * k) | k <- [1..fromIntegral(n-1)]]) * delta
     where delta = (b - a) / fromIntegral n
 
+f :: R -> R
+f x = x**3
+
+g :: R -> R
+g x = exp(-x**2)
+
 runEx_6_16 :: IO ()
 runEx_6_16 = do
     putStrLn "Exercise 6.16 Results:"
+    putStrLn $
+        let trapIntegral_1 = trapIntegrate 10 f 0 1         -- 0.25
+        in show trapIntegral_1
+    putStrLn $
+        let trapIntegral_2 = trapIntegrate 100 f 0 10**(-6) -- 2.5*(10**-25)
+        in show trapIntegral_2
+    putStrLn $
+        let trapIntegral_3 = trapIntegrate 1000 g 0 1       -- ~0.7468
+        in show trapIntegral_3
