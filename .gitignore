@@ -27,3 +27,6 @@ cabal.project.local~
 # Ignore all .md files except README.md
 *.md
 !README.md
+
+# Legacy chapter code being ported in from old physics/ repo — keep local only
+reference/
